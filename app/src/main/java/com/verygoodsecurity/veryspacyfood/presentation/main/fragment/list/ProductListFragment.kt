@@ -22,8 +22,8 @@ class ProductListFragment : BaseMainFragment(R.layout.fragment_product_list),
     private val adapter = ProductsAdapter(this)
 
     override fun initView(savedInstanceState: Bundle?) {
-        initToolbar()
         initListView()
+        subscribeCartUpdate()
     }
 
     override fun onDestroyView() {
@@ -39,12 +39,6 @@ class ProductListFragment : BaseMainFragment(R.layout.fragment_product_list),
         viewModel.addToCart(product)
     }
 
-    private fun initToolbar() {
-        viewModel.cartLiveData.observe(viewLifecycleOwner, {
-            tvMainToolbarBasketCounter?.text = it.count().toString()
-        })
-    }
-
     private fun initListView() {
         rvProductList?.addItemDecoration(
             PaddingItemDecoration(
@@ -57,5 +51,11 @@ class ProductListFragment : BaseMainFragment(R.layout.fragment_product_list),
         rvProductList?.adapter = adapter.apply {
             submitList(TEST_DATA)
         }
+    }
+
+    private fun subscribeCartUpdate() {
+        viewModel.cartLiveData.observe(viewLifecycleOwner, {
+            tvMainToolbarBasketCounter?.text = it.count().toString()
+        })
     }
 }
