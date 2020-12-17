@@ -41,6 +41,9 @@ class ProductDetailsFragment : BaseMainFragment(R.layout.fragment_product_detail
 
     private fun initToolbar() {
         mtvMainToolbarBack?.show()
+        mtvMainToolbarBack?.setOnClickListener {
+            navigation.navigateBack()
+        }
     }
 
     private fun initProductDescription() {

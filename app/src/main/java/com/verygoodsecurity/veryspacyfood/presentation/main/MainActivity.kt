@@ -29,4 +29,8 @@ class MainActivity : AppCompatActivity(), MainNavigationHandler {
             }
         }
     }
+
+    override fun navigateBack() {
+        supportFragmentManager.popBackStack()
+    }
 }
