@@ -58,7 +58,7 @@ class ProductDetailsFragment : BaseMainFragment(R.layout.fragment_product_detail
 
     private fun initListeners() {
         viewModel.cartLiveData.observe(viewLifecycleOwner, {
-            tvMainToolbarBasketCounter?.text = it.count().toString()
+            tvMainToolbarBasketCounter?.text = if (it.isEmpty()) null else it.count().toString()
         })
         mbProductDetailsAddToCart?.setOnClickListener {
             viewModel.addToCart(product)

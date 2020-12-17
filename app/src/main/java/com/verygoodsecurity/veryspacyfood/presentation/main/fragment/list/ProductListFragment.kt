@@ -1,6 +1,7 @@
 package com.verygoodsecurity.veryspacyfood.presentation.main.fragment.list
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import com.verygoodsecurity.veryspacyfood.R
 import com.verygoodsecurity.veryspacyfood.presentation.core.adapter.PaddingItemDecoration
@@ -22,8 +23,9 @@ class ProductListFragment : BaseMainFragment(R.layout.fragment_product_list),
     private val adapter = ProductsAdapter(this)
 
     override fun initView(savedInstanceState: Bundle?) {
-        initListView()
         subscribeCartUpdate()
+        initListView()
+        initListeners()
     }
 
     override fun onDestroyView() {
@@ -37,6 +39,21 @@ class ProductListFragment : BaseMainFragment(R.layout.fragment_product_list),
 
     override fun onAddClick(product: Product) {
         viewModel.addToCart(product)
+    }
+
+    private fun subscribeCartUpdate() {
+        viewModel.cartLiveData.observe(viewLifecycleOwner, {
+            tvMainToolbarBasketCounter?.text = if (it.isEmpty()) null else it.count().toString()
+        })
+        viewModel.paymentCardLiveData.observe(viewLifecycleOwner, {
+            mbProductListPayment?.text = getString(
+                if (it == null) {
+                    R.string.product_list_add_payment_method_btn_title
+                } else {
+                    R.string.product_list_checkout_btn_title
+                }
+            )
+        })
     }
 
     private fun initListView() {
@@ -53,9 +70,21 @@ class ProductListFragment : BaseMainFragment(R.layout.fragment_product_list),
         }
     }
 
-    private fun subscribeCartUpdate() {
-        viewModel.cartLiveData.observe(viewLifecycleOwner, {
-            tvMainToolbarBasketCounter?.text = it.count().toString()
-        })
+    private fun initListeners() {
+        mbProductListPayment?.setOnClickListener {
+            if (viewModel.paymentCardLiveData.value == null) {
+                handleAddPaymentClicked()
+            } else {
+                handleCheckoutClicked()
+            }
+        }
+    }
+
+    private fun handleAddPaymentClicked() {
+        Toast.makeText(requireContext(), "handleAddPaymentClicked", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun handleCheckoutClicked() {
+        Toast.makeText(requireContext(), "handleCheckoutClicked", Toast.LENGTH_SHORT).show()
     }
 }
