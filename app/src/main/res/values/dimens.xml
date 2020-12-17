@@ -20,7 +20,7 @@
 
     <dimen name="custom_text_size_large">24sp</dimen>
 
-    <dimen name="product_item_image_height">164dp</dimen>
+    <dimen name="product_image_height">164dp</dimen>
 
     <dimen name="product_details_corner_radius">80dp</dimen>
 </resources>

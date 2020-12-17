@@ -9,6 +9,7 @@ import kotlinx.android.parcel.Parcelize
 data class Product constructor(
     val title: String,
     val description: String,
+    val weight: Int,
     val price: Double,
     @DrawableRes val image: Int,
     @ColorRes val associatedColor: Int

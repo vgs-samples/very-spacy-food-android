@@ -1,11 +1,14 @@
 <resources>
     <string name="app_name">spacy-food-components</string>
+    <string name="all_price_mask">$%1$.2f</string>
+    <string name="all_add_to_cart">Add to cart</string>
 
     <string name="main_fragment_tag">ProductListFragment</string>
 
     <string name="toolbar_back_btn_title">Back</string>
 
     <string name="product_list_title">What do you fancy eating today?</string>
-    <string name="product_price_mask">$%1$.2f</string>
-    <string name="product_item_add_title">Add to cart</string>
+
+    <string name="product_details_title_mask">%1s\n(%2dg)</string>
+    <string name="product_details_delivery_description">Delivery in 25–35 mins</string>
 </resources>

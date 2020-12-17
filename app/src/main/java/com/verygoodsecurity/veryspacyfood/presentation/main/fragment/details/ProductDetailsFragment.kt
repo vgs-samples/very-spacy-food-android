@@ -1,7 +1,6 @@
 package com.verygoodsecurity.veryspacyfood.presentation.main.fragment.details
 
 import android.os.Bundle
-import android.view.WindowInsets
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.activityViewModels
 import com.google.android.material.shape.CornerFamily
@@ -28,8 +27,7 @@ class ProductDetailsFragment : BaseMainFragment(R.layout.fragment_product_detail
     override fun initView(savedInstanceState: Bundle?) {
         initColorfulBackground()
         initToolbar()
-        initDescription()
-        initPrice()
+        initProductDescription()
     }
 
     private fun initColorfulBackground() {
@@ -45,12 +43,13 @@ class ProductDetailsFragment : BaseMainFragment(R.layout.fragment_product_detail
         mtvMainToolbarBack?.show()
     }
 
-    private fun initPrice() {
-
-    }
-
-    private fun initDescription() {
+    private fun initProductDescription() {
         ViewCompat.requestApplyInsets(clProductDetailsContentContainer)
+        ivProductDetailsImage?.setImageResource(product.image)
+        mtvProductDetailsTitle?.text =
+            getString(R.string.product_details_title_mask, product.title, product.weight)
+        mtvProductDetailsDescription?.text = product.description
+        mtvProductDetailsPrice?.text = getString(R.string.all_price_mask, product.price)
     }
 
     companion object {

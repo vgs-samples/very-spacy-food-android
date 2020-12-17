@@ -45,7 +45,7 @@ class ProductsAdapter constructor(
             containerView.tvItemProductTitle?.text = item.title
             containerView.tvItemProductDescription?.text = item.description
             containerView.tvItemProductPrice?.text =
-                containerView.resources.getString(R.string.product_price_mask, item.price)
+                containerView.resources.getString(R.string.all_price_mask, item.price)
         }
     }
 

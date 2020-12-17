@@ -9,7 +9,7 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivItemProductImage"
         android:layout_width="0dp"
-        android:layout_height="@dimen/product_item_image_height"
+        android:layout_height="@dimen/product_image_height"
         android:adjustViewBounds="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,20 +52,17 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/mbItemProductAdd"
-        style="@style/Widget.MaterialComponents.Button"
+        style="@style/BaseButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/margin_padding_size_large"
-        android:text="@string/product_item_add_title"
-        android:textAllCaps="false"
+        android:text="@string/all_add_to_cart"
         android:textSize="@dimen/text_size_small"
-        android:textStyle="normal"
         app:backgroundTint="@color/goldenPurple"
-        app:cornerRadius="10dp"
+        app:cornerRadius="@dimen/margin_padding_size_micro"
         app:layout_constraintBottom_toBottomOf="@+id/tvItemProductPrice"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/tvItemProductPrice"
-        app:layout_constraintTop_toTopOf="@+id/tvItemProductPrice"
-        tools:textColor="@color/aliceBlue" />
+        app:layout_constraintTop_toTopOf="@+id/tvItemProductPrice" />
 </androidx.constraintlayout.widget.ConstraintLayout>
