@@ -10,4 +10,9 @@
 
     <color name="aliceBlue">#F7F9FC</color>
     <color name="goldenPurple">#B37FEB</color>
+    <color name="niagara">#2EB091</color>
+    <color name="sandyBrown">#ECA75D</color>
+    <color name="fuzzyWuzzyBrown">#C85852</color>
+    <color name="paleVioletRed">#D47B9B</color>
+    <color name="goldenTainoi">#FFC55F</color>
 </resources>

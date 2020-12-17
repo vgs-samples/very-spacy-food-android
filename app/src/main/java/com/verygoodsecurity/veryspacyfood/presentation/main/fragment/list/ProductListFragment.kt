@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.widget.Toast
 import com.verygoodsecurity.veryspacyfood.R
 import com.verygoodsecurity.veryspacyfood.presentation.core.adapter.PaddingItemDecoration
-import com.verygoodsecurity.veryspacyfood.presentation.main.MainActivity.Companion.TEST_DATA
 import com.verygoodsecurity.veryspacyfood.presentation.main.fragment.core.BaseMainFragment
 import com.verygoodsecurity.veryspacyfood.presentation.main.fragment.list.adapter.ProductsAdapter
 import com.verygoodsecurity.veryspacyfood.presentation.main.model.Product
+import com.verygoodsecurity.veryspacyfood.util.DataProvider.TEST_DATA
 import kotlinx.android.synthetic.main.fragment_product_list.*
 
 @Suppress("unused")
