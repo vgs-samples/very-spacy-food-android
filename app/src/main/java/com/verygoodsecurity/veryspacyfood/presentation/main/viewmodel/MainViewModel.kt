@@ -1,13 +1,17 @@
 package com.verygoodsecurity.veryspacyfood.presentation.main.viewmodel
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.verygoodsecurity.veryspacyfood.presentation.main.model.Product
 
 class MainViewModel : ViewModel() {
 
-    var counter: Int = 0
+    private val _cartLiveData = MutableLiveData<ArrayList<Product>>(ArrayList())
+    val cartLiveData: LiveData<ArrayList<Product>> get() = _cartLiveData
 
-    fun echo(): String {
-        counter++
-        return "MainViewModel echo"
+    fun addToCart(product: Product) {
+        _cartLiveData.value?.add(product)
+        _cartLiveData.value = _cartLiveData.value
     }
 }

@@ -120,6 +120,7 @@
             android:layout_weight="1" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/mbProductDetailsAddToCart"
             style="@style/BaseButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

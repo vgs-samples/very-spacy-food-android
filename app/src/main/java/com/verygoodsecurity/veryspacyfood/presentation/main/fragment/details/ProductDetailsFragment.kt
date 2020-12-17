@@ -28,6 +28,7 @@ class ProductDetailsFragment : BaseMainFragment(R.layout.fragment_product_detail
         initColorfulBackground()
         initToolbar()
         initProductDescription()
+        initListeners()
     }
 
     private fun initColorfulBackground() {
@@ -53,6 +54,15 @@ class ProductDetailsFragment : BaseMainFragment(R.layout.fragment_product_detail
             getString(R.string.product_details_title_mask, product.title, product.weight)
         mtvProductDetailsDescription?.text = product.description
         mtvProductDetailsPrice?.text = getString(R.string.all_price_mask, product.price)
+    }
+
+    private fun initListeners() {
+        viewModel.cartLiveData.observe(viewLifecycleOwner, {
+            tvMainToolbarBasketCounter?.text = it.count().toString()
+        })
+        mbProductDetailsAddToCart?.setOnClickListener {
+            viewModel.addToCart(product)
+        }
     }
 
     companion object {
