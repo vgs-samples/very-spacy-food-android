@@ -17,4 +17,8 @@ class MainViewModel : ViewModel() {
         _cartLiveData.value?.add(product)
         _cartLiveData.value = _cartLiveData.value
     }
+
+    fun addPaymentMethod() {
+        _paymentCardLiveData.value = Any()
+    }
 }

@@ -1,7 +1,6 @@
 package com.verygoodsecurity.veryspacyfood.presentation.main.fragment.list
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import com.verygoodsecurity.veryspacyfood.R
 import com.verygoodsecurity.veryspacyfood.presentation.core.adapter.PaddingItemDecoration
@@ -81,10 +80,9 @@ class ProductListFragment : BaseMainFragment(R.layout.fragment_product_list),
     }
 
     private fun handleAddPaymentClicked() {
-        Toast.makeText(requireContext(), "handleAddPaymentClicked", Toast.LENGTH_SHORT).show()
+        viewModel.addPaymentMethod()
     }
 
     private fun handleCheckoutClicked() {
-        Toast.makeText(requireContext(), "handleCheckoutClicked", Toast.LENGTH_SHORT).show()
     }
 }
