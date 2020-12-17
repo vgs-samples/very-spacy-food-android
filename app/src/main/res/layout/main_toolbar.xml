@@ -19,6 +19,7 @@
         android:paddingStart="@dimen/margin_padding_size_medium"
         android:paddingEnd="0dp"
         android:text="@string/toolbar_back_btn_title"
+        android:textColor="@color/aliceBlue"
         android:visibility="gone"
         app:drawableTint="@color/aliceBlue"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity(), MainNavigationHandler {
             val tag = getString(R.string.main_fragment_tag)
             val currentFragment = findFragmentByTag(tag)
             commit {
-                add(R.id.fclMainActivity, ProductDetailsFragment(), tag)
+                add(R.id.fclMainActivity, ProductDetailsFragment.newInstance(product), tag)
                 addToBackStack(null)
                 if (currentFragment?.isAdded == true && currentFragment is ProductListFragment) {
                     hide(currentFragment)
