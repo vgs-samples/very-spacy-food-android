@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commit
 import com.verygoodsecurity.veryspacyfood.R
 import com.verygoodsecurity.veryspacyfood.presentation.main.fragment.details.ProductDetailsFragment
+import com.verygoodsecurity.veryspacyfood.presentation.main.fragment.list.ProductListFragment
 import com.verygoodsecurity.veryspacyfood.presentation.main.model.Product
 
 class MainActivity : AppCompatActivity(), MainNavigationHandler {
@@ -16,12 +17,15 @@ class MainActivity : AppCompatActivity(), MainNavigationHandler {
     }
 
     override fun navigateToDetails(product: Product) {
-        val currentFragment = supportFragmentManager.findFragmentByTag(getString(R.string.app_name))
-        supportFragmentManager.commit {
-            this.add(R.id.fclMainActivity, ProductDetailsFragment(), getString(R.string.app_name))
-            this.addToBackStack(null)
-            if (currentFragment?.isAdded == true) {
-                this.hide(currentFragment)
+        with(supportFragmentManager) {
+            val tag = getString(R.string.main_fragment_tag)
+            val currentFragment = findFragmentByTag(tag)
+            commit {
+                add(R.id.fclMainActivity, ProductDetailsFragment(), tag)
+                addToBackStack(null)
+                if (currentFragment?.isAdded == true && currentFragment is ProductListFragment) {
+                    hide(currentFragment)
+                }
             }
         }
     }

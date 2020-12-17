@@ -5,6 +5,6 @@
     android:name="com.verygoodsecurity.veryspacyfood.presentation.main.fragment.list.ProductListFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:tag="@string/app_name"
+    android:tag="@string/main_fragment_tag"
     tools:background="@drawable/space_window_background"
     tools:context=".presentation.main.MainActivity" />

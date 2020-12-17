@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">spacy-food-components</string>
 
+    <string name="main_fragment_tag">ProductListFragment</string>
+
     <string name="toolbar_back_btn_title">Back</string>
 
     <string name="product_list_title">What do you fancy eating today?</string>
