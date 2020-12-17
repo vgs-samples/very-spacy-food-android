@@ -2,17 +2,22 @@ package com.verygoodsecurity.veryspacyfood.presentation.main.fragment.list
 
 import android.os.Bundle
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import com.verygoodsecurity.veryspacyfood.R
 import com.verygoodsecurity.veryspacyfood.presentation.core.adapter.PaddingItemDecoration
 import com.verygoodsecurity.veryspacyfood.presentation.main.fragment.core.BaseMainFragment
 import com.verygoodsecurity.veryspacyfood.presentation.main.fragment.list.adapter.ProductsAdapter
 import com.verygoodsecurity.veryspacyfood.presentation.main.model.Product
+import com.verygoodsecurity.veryspacyfood.presentation.main.viewmodel.MainViewModel
 import com.verygoodsecurity.veryspacyfood.util.DataProvider.TEST_DATA
 import kotlinx.android.synthetic.main.fragment_product_list.*
 
 @Suppress("unused")
 class ProductListFragment : BaseMainFragment(R.layout.fragment_product_list),
     ProductsAdapter.OnProductClickListener {
+
+    @Suppress("unused")
+    private val viewModel: MainViewModel by activityViewModels()
 
     private val adapter = ProductsAdapter(this)
 
