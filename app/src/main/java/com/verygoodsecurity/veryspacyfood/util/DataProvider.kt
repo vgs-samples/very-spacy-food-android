@@ -2,8 +2,11 @@ package com.verygoodsecurity.veryspacyfood.util
 
 import com.verygoodsecurity.veryspacyfood.R
 import com.verygoodsecurity.veryspacyfood.presentation.main.model.Product
+import java.util.*
 
 object DataProvider {
+
+    val USER_ID: String = UUID.randomUUID().toString()
 
     val TEST_DATA = listOf(
         Product(

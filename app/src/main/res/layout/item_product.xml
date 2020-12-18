@@ -23,8 +23,7 @@
         android:textSize="@dimen/custom_text_size_large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivItemProductImage"
-        tools:text="Pluto roll"
-        tools:textColor="@color/aliceBlue" />
+        tools:text="Pluto roll" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvItemProductDescription"
@@ -34,8 +33,7 @@
         android:textSize="@dimen/text_size_small"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvItemProductTitle"
-        tools:text="Fresh salmon with avocado, philadelphia, and cucumber, spruced with a pinch of sesame"
-        tools:textColor="@color/aliceBlue" />
+        tools:text="Fresh salmon with avocado, philadelphia, and cucumber, spruced with a pinch of sesame" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvItemProductPrice"
@@ -47,8 +45,7 @@
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvItemProductDescription"
-        tools:text="$9.80"
-        tools:textColor="@color/aliceBlue" />
+        tools:text="$9.80" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/mbItemProductAdd"

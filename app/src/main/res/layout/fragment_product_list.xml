@@ -24,8 +24,7 @@
         android:textSize="@dimen/custom_text_size_large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/includeProductListToolbar"
-        tools:textColor="@color/aliceBlue" />
+        app:layout_constraintTop_toBottomOf="@+id/includeProductListToolbar" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvProductList"

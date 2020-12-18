@@ -25,7 +25,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:textColor="@color/aliceBlue"
         tools:visibility="visible" />
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -51,6 +50,5 @@
         app:layout_constraintEnd_toEndOf="@+id/ivMainToolbarBasket"
         app:layout_constraintStart_toStartOf="@+id/ivMainToolbarBasket"
         app:layout_constraintTop_toTopOf="@+id/ivMainToolbarBasket"
-        tools:text="9"
-        tools:textColor="@color/aliceBlue" />
+        tools:text="9" />
 </androidx.constraintlayout.widget.ConstraintLayout>

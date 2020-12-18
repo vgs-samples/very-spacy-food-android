@@ -65,8 +65,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ivProductDetailsImage"
-                tools:text="Alien noodles\n(330g)"
-                tools:textColor="@color/aliceBlue" />
+                tools:text="Alien noodles\n(330g)" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/mtvProductDetailsDescription"
@@ -79,8 +78,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/mtvProductDetailsTitle"
-                tools:text="Buttery, garlicky noodles served with juicy jumbo shrimp"
-                tools:textColor="@color/aliceBlue" />
+                tools:text="Buttery, garlicky noodles served with juicy jumbo shrimp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -102,8 +100,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textSize="@dimen/text_size_xlarge"
-            tools:text="$7.90"
-            tools:textColor="@color/aliceBlue" />
+            tools:text="$7.90" />
 
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
@@ -111,8 +108,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/margin_padding_size_small"
             android:text="@string/product_details_delivery_description"
-            android:textSize="@dimen/text_size_small"
-            tools:textColor="@color/aliceBlue" />
+            android:textSize="@dimen/text_size_small" />
 
         <Space
             android:layout_width="match_parent"

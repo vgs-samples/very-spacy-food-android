@@ -2,6 +2,7 @@
     <string name="app_name">spacy-food-components</string>
     <string name="all_price_mask">$%1$.2f</string>
     <string name="all_add_to_cart">Add to cart</string>
+    <string name="all_save">Save</string>
 
     <string name="main_fragment_tag">ProductListFragment</string>
 
@@ -13,4 +14,10 @@
 
     <string name="product_details_title_mask">%1s\n(%2dg)</string>
     <string name="product_details_delivery_description">Delivery in 25–35 mins</string>
+
+    <string name="credit_card_add_card_title">Add Card Number</string>
+    <string name="credit_card_holder_hint">Cardholder name</string>
+    <string name="credit_card_number_hint">Card number</string>
+    <string name="credit_card_date_hint">Date</string>
+    <string name="credit_card_cvc_hint">CVC</string>
 </resources>

@@ -23,4 +23,7 @@
     <dimen name="product_image_height">164dp</dimen>
 
     <dimen name="product_details_corner_radius">80dp</dimen>
+
+    <dimen name="credit_card_background_corner_radius">40dp</dimen>
+    <dimen name="credit_card_min_input_width">100dp</dimen>
 </resources>
