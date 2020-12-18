@@ -72,7 +72,7 @@
                 android:layout_height="match_parent"
                 android:nextFocusDown="@+id/cardExpDateField"
                 android:padding="@dimen/margin_padding_size_small"
-                app:fieldName="card_name"
+                app:fieldName="@string/credit_card_card_name_field_name"
                 app:textColor="@color/aliceBlue" />
         </com.verygoodsecurity.vgscollect.widget.VGSTextInputLayout>
 
@@ -94,7 +94,7 @@
                 android:nextFocusDown="@+id/cardExpDateField"
                 android:padding="@dimen/margin_padding_size_small"
                 app:cardBrandIconGravity="end"
-                app:fieldName="card_number"
+                app:fieldName="@string/credit_card_card_number_field_name"
                 app:inputType="number"
                 app:numberDivider=" "
                 app:textColor="@color/aliceBlue"
@@ -123,7 +123,7 @@
                 android:padding="@dimen/margin_padding_size_small"
                 app:datePattern="MM/yy"
                 app:datePickerModes="input"
-                app:fieldName="card_expiration_date"
+                app:fieldName="@string/credit_card_card_date_field_name"
                 app:gravity="center"
                 app:imeOptions="actionNext"
                 app:inputType="date"
@@ -151,7 +151,7 @@
                 android:layout_height="match_parent"
                 android:nextFocusDown="@+id/cardExpDateField"
                 android:padding="@dimen/margin_padding_size_small"
-                app:fieldName="card_cvc"
+                app:fieldName="@string/credit_card_card_cvc_field_name"
                 app:gravity="center"
                 app:imeOptions="actionDone"
                 app:textColor="@color/aliceBlue" />

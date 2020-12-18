@@ -20,4 +20,9 @@
     <string name="credit_card_number_hint">Card number</string>
     <string name="credit_card_date_hint">Date</string>
     <string name="credit_card_cvc_hint">CVC</string>
+    <string name="credit_card_no_data_error_msg">No data!</string>
+    <string name="credit_card_card_name_field_name">card_name</string>
+    <string name="credit_card_card_number_field_name">card_number</string>
+    <string name="credit_card_card_date_field_name">card_expiration_date</string>
+    <string name="credit_card_card_cvc_field_name">card_cvc</string>
 </resources>
