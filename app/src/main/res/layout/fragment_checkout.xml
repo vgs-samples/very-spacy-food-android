@@ -40,26 +40,30 @@
                 android:layout_weight="3"
                 android:drawablePadding="@dimen/margin_padding_size_medium"
                 android:gravity="center"
-                android:text="Order info"
+                android:text="@string/checkout_order_info_title"
                 android:textColor="@color/grey3"
                 app:autoSizeMaxTextSize="@dimen/text_size_xlarge"
                 app:autoSizeMinTextSize="@dimen/text_size_medium"
                 app:autoSizeTextType="uniform"
                 app:drawableBottomCompat="@drawable/ic_fork_white_48dp"
-                app:drawableTint="@color/grey3" />
+                app:drawableTint="@color/grey3"
+                app:layout_constraintBottom_toTopOf="@+id/viewCheckoutOrderInfoDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center|bottom"
-                android:text="Total amount"
+                android:text="@string/checkout_total_amount_title"
                 android:textColor="@color/grey3"
                 app:autoSizeMaxTextSize="@dimen/text_size_medium"
                 app:autoSizeMinTextSize="@dimen/text_size_micro"
                 app:autoSizeTextType="uniform" />
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/mtvCheckoutAmount"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginTop="@dimen/margin_padding_size_micro"
@@ -78,7 +82,7 @@
             android:layout_height="@dimen/divider_height"
             android:background="@color/aliceBlue"
             app:layout_constraintBottom_toTopOf="@id/guideline2"
-            app:layout_constraintEnd_toEndOf=""
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.constraintlayout.widget.Guideline
@@ -96,7 +100,7 @@
             android:layout_marginTop="@dimen/margin_padding_size_medium"
             android:layout_marginEnd="@dimen/margin_padding_size_medium"
             android:gravity="center|bottom"
-            android:text="Delivery address"
+            android:text="@string/checkout_delivery_address_title"
             android:textColor="@color/grey3"
             android:textSize="@dimen/custom_text_size_medium"
             app:layout_constraintBottom_toTopOf="@+id/materialTextView2"
@@ -117,6 +121,7 @@
             android:drawablePadding="@dimen/margin_padding_size_small"
             android:gravity="center|top"
             android:lines="@integer/singleLine"
+            android:text="@string/checkout_delivery_address_mock"
             android:textColor="@color/grey5"
             android:textSize="@dimen/text_size_medium"
             app:drawableStartCompat="@drawable/ic_location_white_18dp"
@@ -124,8 +129,7 @@
             app:layout_constraintBottom_toTopOf="@+id/viewCheckoutPayInfoDivider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mtvCheckoutDeliveryAddressTitle"
-            tools:text="2082 Gordon Street" />
+            app:layout_constraintTop_toBottomOf="@+id/mtvCheckoutDeliveryAddressTitle" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline3"
@@ -144,28 +148,24 @@
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/mtvCheckoutPayTitle"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_padding_size_large"
             android:layout_marginTop="@dimen/margin_padding_size_large"
             android:layout_marginEnd="@dimen/margin_padding_size_large"
             android:drawablePadding="@dimen/margin_padding_size_medium"
-            android:gravity="center|bottom"
-            android:text="Pay with your visa"
+            android:gravity="center"
+            android:text="@string/checkout_pay_title"
             android:textColor="@color/grey3"
-            app:autoSizeMaxTextSize="@dimen/custom_text_size_medium"
-            app:autoSizeMinTextSize="@dimen/text_size_micro"
-            app:autoSizeTextType="uniform"
+            android:textSize="@dimen/custom_text_size_medium"
             app:drawableBottomCompat="@drawable/ic_visa_card_white_48dp"
             app:drawableTint="@color/grey3"
-            app:layout_constraintBottom_toTopOf="@+id/materialTextView4"
+            app:layout_constraintBottom_toTopOf="@+id/mtvCheckoutCardNumber"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/viewCheckoutPayInfoDivider"
-            app:layout_constraintVertical_weight="6" />
+            app:layout_constraintTop_toBottomOf="@+id/viewCheckoutPayInfoDivider" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/materialTextView4"
+            android:id="@+id/mtvCheckoutCardNumber"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="@dimen/margin_padding_size_large"
@@ -178,10 +178,8 @@
             app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mtvCheckoutPayTitle"
-            app:layout_constraintVertical_weight="4"
             tools:text="4111 **** **** 1111" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

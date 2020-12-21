@@ -7,7 +7,7 @@ import com.verygoodsecurity.veryspacyfood.presentation.main.fragment.core.BaseMa
 import com.verygoodsecurity.veryspacyfood.presentation.main.viewmodel.MainViewModel
 import com.verygoodsecurity.veryspacyfood.util.extension.hide
 import com.verygoodsecurity.veryspacyfood.util.extension.show
-import com.verygoodsecurity.veryspacyfood.util.extension.showShort
+import kotlinx.android.synthetic.main.fragment_checkout.*
 import kotlinx.android.synthetic.main.main_toolbar.*
 
 class CheckoutFragment : BaseMainFragment(R.layout.fragment_checkout) {
@@ -26,7 +26,17 @@ class CheckoutFragment : BaseMainFragment(R.layout.fragment_checkout) {
     }
 
     private fun initContent() {
-        requireContext().showShort(viewModel.paymentCardLiveData.value.toString())
+        checkNotNull(viewModel.cartLiveData.value).run {
+            mtvCheckoutAmount.text = getString(R.string.all_price_mask, sumByDouble { it.price })
+        }
+        checkNotNull(viewModel.paymentCardLiveData.value).run {
+            mtvCheckoutCardNumber.text =
+                getString(
+                    R.string.checkout_pay_card_mask,
+                    cardNumberBin.slice(0..3),
+                    cardNumberLast4
+                )
+        }
     }
 
     private fun initListeners() {

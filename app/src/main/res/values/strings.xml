@@ -28,5 +28,11 @@
     <string name="credit_card_card_cvc_field_name">card_cvc</string>
     <string name="credit_card_successfully_added_msg">Card successfully added!</string>
 
+    <string name="checkout_order_info_title">Order info</string>
+    <string name="checkout_total_amount_title">Total amount</string>
+    <string name="checkout_delivery_address_title">Delivery address</string>
+    <string name="checkout_delivery_address_mock">2082 Gordon Street</string>
+    <string name="checkout_pay_title">Pay with your visa</string>
+    <string name="checkout_pay_card_mask">%1s **** **** %2s</string>
     <string name="checkout_pay_btn_title">Pay</string>
 </resources>
