@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity(), MainNavigationHandler {
     }
 
     override fun navigateToAddCreditCard() {
-        CreditCardFragment().show(supportFragmentManager, null)
+        CreditCardFragment().show(supportFragmentManager, CreditCardFragment.TAG)
     }
 
     override fun navigateToCheckout() {

@@ -14,7 +14,7 @@ object DataProvider {
             "Fresh salmon with avocado, philadelphia, and cucumber, spruced with a pinch of sesame",
             180,
             14.49,
-            R.drawable.ic_logo,
+            R.drawable.pluto_roll,
             R.color.paleVioletRed
         ),
         Product(
@@ -22,7 +22,7 @@ object DataProvider {
             "This pizza is topped with authentic Italian salami, peppers, Parmesan cheese, and spices",
             350,
             12.25,
-            R.drawable.ic_logo,
+            R.drawable.mars_pizza,
             R.color.fuzzyWuzzyBrown
         ),
         Product(
@@ -30,7 +30,7 @@ object DataProvider {
             "Pure beef topped with a fresh tomato, chopped onions, ketchup, mustard, and a slice of melty cheddar",
             340,
             17.15,
-            R.drawable.ic_logo,
+            R.drawable.sunburger,
             R.color.sandyBrown
         ),
         Product(
@@ -38,7 +38,7 @@ object DataProvider {
             "Buttery, garlicky noodles served with a boiled egg, green beans, and juicy jumbo shrimp",
             330,
             13.49,
-            R.drawable.ic_logo,
+            R.drawable.alien_noodles,
             R.color.niagara
         ),
         Product(
@@ -46,7 +46,7 @@ object DataProvider {
             "Crunchy potato fries with tomato sauce dip is a nutrishious side dish",
             270,
             8.99,
-            R.drawable.ic_logo,
+            R.drawable.venus_fries,
             R.color.goldenTainoi
         )
     )

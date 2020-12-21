@@ -145,6 +145,8 @@ class CreditCardFragment : BottomSheetDialogFragment(), VgsCollectResponseListen
 
     companion object {
 
+        const val TAG = "CreditCardFragment"
+
         private const val REQUEST_PATH = "/cards/new"
 
         private const val KET_REQUEST_DATA_USER_ID = "userId"

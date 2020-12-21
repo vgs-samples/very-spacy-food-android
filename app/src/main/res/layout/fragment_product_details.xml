@@ -42,25 +42,30 @@
             android:padding="@dimen/margin_padding_size_xlarge"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/includeProductDetailsToolbar">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/ivProductDetailsImage"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/product_image_height"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 app:layout_constraintBottom_toTopOf="@+id/mtvProductDetailsTitle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/ic_logo" />
+                tools:src="@drawable/alien_noodles" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/mtvProductDetailsTitle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/margin_padding_size_small"
                 android:gravity="center"
-                android:textSize="@dimen/text_size_xlarge"
+                app:autoSizeMaxTextSize="@dimen/text_size_xlarge"
+                app:autoSizeMinTextSize="@dimen/text_size_medium"
+                app:autoSizeTextType="uniform"
                 app:layout_constraintBottom_toTopOf="@+id/mtvProductDetailsDescription"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -71,6 +76,7 @@
                 android:id="@+id/mtvProductDetailsDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_size_small"
                 android:ellipsize="end"
                 android:gravity="center"
                 android:textSize="@dimen/text_size_small"
@@ -96,17 +102,22 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/mtvProductDetailsPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_gravity="center"
-            android:textSize="@dimen/text_size_xlarge"
+            android:layout_weight="1"
+            android:gravity="center"
+            app:autoSizeMaxTextSize="@dimen/text_size_xlarge"
+            app:autoSizeMinTextSize="@dimen/text_size_medium"
+            app:autoSizeTextType="uniform"
             tools:text="$7.90" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/margin_padding_size_small"
+            android:gravity="center"
             android:text="@string/product_details_delivery_description"
             android:textSize="@dimen/text_size_small" />
 
@@ -121,12 +132,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:padding="@dimen/margin_padding_size_medium"
-            android:text="@string/all_add_to_cart"
-            android:textAllCaps="false"
-            android:textColor="@color/aliceBlue"
-            android:textSize="@dimen/text_size_large"
-            android:textStyle="normal"
-            app:cornerRadius="@dimen/margin_padding_size_small" />
+            android:text="@string/all_add_to_cart" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
