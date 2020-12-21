@@ -6,5 +6,9 @@ interface MainNavigationHandler {
 
     fun navigateToDetails(product: Product)
 
+    fun navigateToAddCreditCard()
+
+    fun navigateToCheckout()
+
     fun navigateBack()
 }

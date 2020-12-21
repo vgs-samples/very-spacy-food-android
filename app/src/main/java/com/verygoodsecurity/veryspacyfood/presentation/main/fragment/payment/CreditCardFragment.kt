@@ -1,5 +1,6 @@
 package com.verygoodsecurity.veryspacyfood.presentation.main.fragment.payment
 
+import android.content.Context
 import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -8,16 +9,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.verygoodsecurity.veryspacyfood.BuildConfig
 import com.verygoodsecurity.veryspacyfood.R
+import com.verygoodsecurity.veryspacyfood.presentation.main.MainNavigationHandler
 import com.verygoodsecurity.veryspacyfood.presentation.main.model.SecureCard
 import com.verygoodsecurity.veryspacyfood.presentation.main.viewmodel.MainViewModel
 import com.verygoodsecurity.veryspacyfood.util.DataProvider.USER_ID
 import com.verygoodsecurity.veryspacyfood.util.extension.expandTouchArea
-import com.verygoodsecurity.veryspacyfood.util.extension.toJson
+import com.verygoodsecurity.veryspacyfood.util.extension.hideKeyboard
+import com.verygoodsecurity.veryspacyfood.util.extension.showShort
 import com.verygoodsecurity.vgscollect.core.Environment
 import com.verygoodsecurity.vgscollect.core.HTTPMethod
 import com.verygoodsecurity.vgscollect.core.VGSCollect
@@ -35,6 +37,8 @@ class CreditCardFragment : BottomSheetDialogFragment(), VgsCollectResponseListen
 
     private val viewModel: MainViewModel by activityViewModels()
 
+    private lateinit var navigation: MainNavigationHandler
+
     private val vgsCollect: VGSCollect by lazy {
         VGSCollect(requireContext(), BuildConfig.TENANT_ID, Environment.SANDBOX).apply {
             addOnResponseListeners(this@CreditCardFragment)
@@ -42,6 +46,12 @@ class CreditCardFragment : BottomSheetDialogFragment(), VgsCollectResponseListen
     }
 
     override fun getTheme(): Int = R.style.CreditCardSheetDialogTheme
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        navigation = (context as? MainNavigationHandler)
+            ?: throw IllegalStateException("Activity should implement MainNavigationHandler")
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -58,7 +68,7 @@ class CreditCardFragment : BottomSheetDialogFragment(), VgsCollectResponseListen
 
     override fun onResponse(response: VGSResponse?) {
         when (response) {
-            is VGSResponse.SuccessResponse -> handleSuccessfulResponse(response)
+            is VGSResponse.SuccessResponse -> handleSuccessfulResponse()
             is VGSResponse.ErrorResponse -> handleErrorResponse(response.localizeMessage)
         }
     }
@@ -101,6 +111,7 @@ class CreditCardFragment : BottomSheetDialogFragment(), VgsCollectResponseListen
 
     private fun saveCard() {
         validateFieldsAndRun {
+            view?.hideKeyboard()
             vgsCollect.asyncSubmit(
                 VGSRequest.VGSRequestBuilder()
                     .setPath(REQUEST_PATH)
@@ -116,28 +127,20 @@ class CreditCardFragment : BottomSheetDialogFragment(), VgsCollectResponseListen
         block.invoke()
     }
 
-    private fun handleSuccessfulResponse(response: VGSResponse.SuccessResponse) {
-        with(response.rawResponse?.toJson()?.getJSONObject(RESPONSE_JSON_KEY)) {
-            if (this == null) {
-                handleErrorResponse(getString(R.string.credit_card_no_data_error_msg))
-                return
-            }
-            viewModel.addPaymentMethod(
-                SecureCard(
-                    getString(getString(R.string.credit_card_card_name_field_name)),
-                    getString(getString(R.string.credit_card_card_name_field_name)),
-                    getString(getString(R.string.credit_card_card_name_field_name)),
-                    etCreditCardNumber?.getState()?.bin ?: "",
-                    etCreditCardNumber?.getState()?.last ?: "",
-                    etCreditCardNumber?.getState()?.cardBrand ?: ""
-                )
+    private fun handleSuccessfulResponse() {
+        requireContext().showShort(R.string.credit_card_successfully_added_msg)
+        viewModel.addPaymentMethod(
+            SecureCard(
+                etCreditCardNumber?.getState()?.bin ?: "",
+                etCreditCardNumber?.getState()?.last ?: "",
+                etCreditCardNumber?.getState()?.cardBrand ?: ""
             )
-            parentFragmentManager.popBackStack()
-        }
+        )
+        dismiss()
     }
 
     private fun handleErrorResponse(message: String) {
-        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+        requireContext().showShort(message)
     }
 
     companion object {
@@ -145,7 +148,5 @@ class CreditCardFragment : BottomSheetDialogFragment(), VgsCollectResponseListen
         private const val REQUEST_PATH = "/cards/new"
 
         private const val KET_REQUEST_DATA_USER_ID = "userId"
-
-        private const val RESPONSE_JSON_KEY = "json"
     }
 }

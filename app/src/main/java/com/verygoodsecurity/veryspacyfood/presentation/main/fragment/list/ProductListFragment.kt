@@ -6,7 +6,6 @@ import com.verygoodsecurity.veryspacyfood.R
 import com.verygoodsecurity.veryspacyfood.presentation.core.adapter.PaddingItemDecoration
 import com.verygoodsecurity.veryspacyfood.presentation.main.fragment.core.BaseMainFragment
 import com.verygoodsecurity.veryspacyfood.presentation.main.fragment.list.adapter.ProductsAdapter
-import com.verygoodsecurity.veryspacyfood.presentation.main.fragment.payment.CreditCardFragment
 import com.verygoodsecurity.veryspacyfood.presentation.main.model.Product
 import com.verygoodsecurity.veryspacyfood.presentation.main.viewmodel.MainViewModel
 import com.verygoodsecurity.veryspacyfood.util.DataProvider.TEST_DATA
@@ -73,17 +72,14 @@ class ProductListFragment : BaseMainFragment(R.layout.fragment_product_list),
     private fun initListeners() {
         mbProductListPayment?.setOnClickListener {
             if (viewModel.paymentCardLiveData.value == null) {
-                handleAddPaymentClicked()
+                navigation.navigateToAddCreditCard()
             } else {
                 handleCheckoutClicked()
             }
         }
     }
 
-    private fun handleAddPaymentClicked() {
-        CreditCardFragment().show(childFragmentManager, null)
-    }
-
     private fun handleCheckoutClicked() {
+
     }
 }

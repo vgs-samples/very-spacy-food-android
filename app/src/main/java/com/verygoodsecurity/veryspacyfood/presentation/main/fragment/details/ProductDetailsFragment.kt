@@ -67,6 +67,8 @@ class ProductDetailsFragment : BaseMainFragment(R.layout.fragment_product_detail
 
     companion object {
 
+        const val TAG = "ProductDetailsFragment"
+
         private const val PRODUCT_KEY = "product"
 
         fun newInstance(product: Product) = ProductDetailsFragment().apply {
