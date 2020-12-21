@@ -11,6 +11,7 @@
     <string name="product_list_title">What do you fancy eating today?</string>
     <string name="product_list_add_payment_method_btn_title">Add payment method</string>
     <string name="product_list_checkout_btn_title">Checkout</string>
+    <string name="product_list_checkout_error_msg">Ooops! Seems you didn\'t choose any item yet…</string>
 
     <string name="product_details_title_mask">%1s\n(%2dg)</string>
     <string name="product_details_delivery_description">Delivery in 25–35 mins</string>

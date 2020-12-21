@@ -9,6 +9,7 @@ import com.verygoodsecurity.veryspacyfood.presentation.main.fragment.list.adapte
 import com.verygoodsecurity.veryspacyfood.presentation.main.model.Product
 import com.verygoodsecurity.veryspacyfood.presentation.main.viewmodel.MainViewModel
 import com.verygoodsecurity.veryspacyfood.util.DataProvider.TEST_DATA
+import com.verygoodsecurity.veryspacyfood.util.extension.showShort
 import kotlinx.android.synthetic.main.fragment_product_list.*
 import kotlinx.android.synthetic.main.main_toolbar.*
 
@@ -80,6 +81,10 @@ class ProductListFragment : BaseMainFragment(R.layout.fragment_product_list),
     }
 
     private fun handleCheckoutClicked() {
-
+        if (viewModel.cartLiveData.value.isNullOrEmpty()) {
+            requireContext().showShort(R.string.product_list_checkout_error_msg)
+            return
+        }
+        navigation.navigateToCheckout()
     }
 }
