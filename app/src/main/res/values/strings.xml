@@ -3,6 +3,7 @@
     <string name="all_price_mask">$%1$.2f</string>
     <string name="all_add_to_cart">Add to cart</string>
     <string name="all_save">Save</string>
+    <string name="all_error">Request error! Something went wrong.</string>
 
     <string name="main_fragment_tag">ProductListFragment</string>
 

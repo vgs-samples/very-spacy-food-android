@@ -9,7 +9,7 @@ import com.verygoodsecurity.veryspacyfood.presentation.main.fragment.details.Pro
 import com.verygoodsecurity.veryspacyfood.presentation.main.fragment.payment.CreditCardFragment
 import com.verygoodsecurity.veryspacyfood.presentation.main.model.Product
 
-class MainActivity : AppCompatActivity(), MainNavigationHandler {
+class MainActivity : AppCompatActivity(), MainNavigationHandler, LoadingHandler {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.Theme_App)
@@ -39,7 +39,19 @@ class MainActivity : AppCompatActivity(), MainNavigationHandler {
         }
     }
 
+    override fun navigateToCheckoutComplete() {
+
+    }
+
     override fun navigateBack() {
         supportFragmentManager.popBackStack()
+    }
+
+    override fun show() {
+
+    }
+
+    override fun hide() {
+
     }
 }

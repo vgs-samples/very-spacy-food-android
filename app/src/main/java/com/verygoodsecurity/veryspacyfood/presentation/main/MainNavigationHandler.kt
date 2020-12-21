@@ -10,5 +10,7 @@ interface MainNavigationHandler {
 
     fun navigateToCheckout()
 
+    fun navigateToCheckoutComplete()
+
     fun navigateBack()
 }
