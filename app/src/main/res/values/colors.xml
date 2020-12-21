@@ -11,6 +11,8 @@
     <color name="paleVioletRed">#D47B9B</color>
     <color name="goldenTainoi">#FFC55F</color>
     <color name="lightGrey">#c6c6c6</color>
+    <color name="grey3">#F5F5F5</color>
+    <color name="grey5">#D9D9D9</color>
 
     <color name="mtrl_textinput_default_box_stroke_color">@color/lightGrey</color>
 </resources>

@@ -18,6 +18,7 @@
     <dimen name="text_size_xxlarge">45sp</dimen>
     <dimen name="text_size_xxxlarge">56sp</dimen>
 
+    <dimen name="custom_text_size_medium">18sp</dimen>
     <dimen name="custom_text_size_large">24sp</dimen>
 
     <dimen name="product_image_height">164dp</dimen>
@@ -26,4 +27,6 @@
 
     <dimen name="credit_card_background_corner_radius">40dp</dimen>
     <dimen name="credit_card_min_input_width">100dp</dimen>
+
+    <dimen name="divider_height">1dp</dimen>
 </resources>

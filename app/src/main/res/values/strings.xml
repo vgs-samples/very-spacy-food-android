@@ -27,4 +27,6 @@
     <string name="credit_card_card_date_field_name">card_expiration_date</string>
     <string name="credit_card_card_cvc_field_name">card_cvc</string>
     <string name="credit_card_successfully_added_msg">Card successfully added!</string>
+
+    <string name="checkout_pay_btn_title">Pay</string>
 </resources>
