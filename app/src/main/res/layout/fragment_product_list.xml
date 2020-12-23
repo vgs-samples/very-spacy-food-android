@@ -20,6 +20,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_padding_size_large"
         android:gravity="center"
+        android:layout_marginStart="@dimen/margin_padding_size_large"
+        android:layout_marginEnd="@dimen/margin_padding_size_large"
         android:text="@string/product_list_title"
         android:textSize="@dimen/custom_text_size_large"
         app:layout_constraintEnd_toEndOf="parent"

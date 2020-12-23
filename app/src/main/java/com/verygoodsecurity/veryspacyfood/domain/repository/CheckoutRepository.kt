@@ -12,22 +12,24 @@ import java.util.concurrent.TimeUnit
 class CheckoutRepository {
 
     private val client: OkHttpClient = OkHttpClient.Builder()
-        .callTimeout(DEFAULT_TIMEOUT, TimeUnit.MILLISECONDS)
-        .readTimeout(DEFAULT_TIMEOUT, TimeUnit.MILLISECONDS)
-        .writeTimeout(DEFAULT_TIMEOUT, TimeUnit.MILLISECONDS)
+        .callTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
+        .readTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
+        .writeTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
         .build()
 
-    fun checkout(userId: String, amount: Double, onResult: (Result) -> Unit) {
-        client.newCall(buildCheckoutRequest(userId, amount)).enqueue(object : Callback {
+    fun checkout(userId: String, amount: Double, onResult: (Result) -> Unit): Call {
+        return client.newCall(buildCheckoutRequest(userId, amount)).also {
+            it.enqueue(object : Callback {
 
-            override fun onFailure(call: Call, e: IOException) {
-                onResult.invoke(Result.Error(e.localizedMessage))
-            }
+                override fun onFailure(call: Call, e: IOException) {
+                    onResult.invoke(Result.Error(e.localizedMessage))
+                }
 
-            override fun onResponse(call: Call, response: Response) {
-                onResult.invoke(Result.Success)
-            }
-        })
+                override fun onResponse(call: Call, response: Response) {
+                    onResult.invoke(Result.Success)
+                }
+            })
+        }
     }
 
     fun cancel() {
@@ -39,14 +41,14 @@ class CheckoutRepository {
             .url(BuildConfig.BASE_URL + CHECKOUT_PATH)
             .post(JSONObject().apply {
                 put(USER_ID_JSON_SELECTOR, userId)
-                put(AMOUNT_JSON_SELECTOR, amount)
+                put(AMOUNT_JSON_SELECTOR, (amount * 100).toInt())
             }.toString().toRequestBody(CONTENT_TYPE))
             .build()
     }
 
     companion object {
 
-        private const val DEFAULT_TIMEOUT: Long = 1 * 1000 /* 10 sec */
+        private const val DEFAULT_TIMEOUT: Long = 10
 
         private const val CHECKOUT_PATH = "/payments/stripe"
 

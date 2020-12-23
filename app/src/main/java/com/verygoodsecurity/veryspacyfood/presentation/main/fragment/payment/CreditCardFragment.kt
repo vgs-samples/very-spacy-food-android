@@ -9,11 +9,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.verygoodsecurity.veryspacyfood.BuildConfig
 import com.verygoodsecurity.veryspacyfood.R
 import com.verygoodsecurity.veryspacyfood.presentation.main.MainNavigationHandler
+import com.verygoodsecurity.veryspacyfood.presentation.main.fragment.loading.LoadingDialogFragment
 import com.verygoodsecurity.veryspacyfood.presentation.main.model.SecureCard
 import com.verygoodsecurity.veryspacyfood.presentation.main.viewmodel.MainViewModel
 import com.verygoodsecurity.veryspacyfood.util.DataProvider.USER_ID
@@ -39,8 +41,10 @@ class CreditCardFragment : BottomSheetDialogFragment(), VgsCollectResponseListen
 
     private lateinit var navigation: MainNavigationHandler
 
+    private var loadingDialog: DialogFragment? = null
+
     private val vgsCollect: VGSCollect by lazy {
-        VGSCollect(requireContext(), BuildConfig.TENANT_ID, Environment.SANDBOX).apply {
+        VGSCollect(requireContext(), BuildConfig.VAULT_ID, Environment.SANDBOX).apply {
             addOnResponseListeners(this@CreditCardFragment)
         }
     }
@@ -66,7 +70,18 @@ class CreditCardFragment : BottomSheetDialogFragment(), VgsCollectResponseListen
         initListeners()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        hideLoading()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        vgsCollect.onDestroy()
+    }
+
     override fun onResponse(response: VGSResponse?) {
+        hideLoading()
         when (response) {
             is VGSResponse.SuccessResponse -> handleSuccessfulResponse()
             is VGSResponse.ErrorResponse -> handleErrorResponse(response.localizeMessage)
@@ -111,6 +126,7 @@ class CreditCardFragment : BottomSheetDialogFragment(), VgsCollectResponseListen
 
     private fun saveCard() {
         validateFieldsAndRun {
+            showLoading()
             view?.hideKeyboard()
             vgsCollect.asyncSubmit(
                 VGSRequest.VGSRequestBuilder()
@@ -141,6 +157,16 @@ class CreditCardFragment : BottomSheetDialogFragment(), VgsCollectResponseListen
 
     private fun handleErrorResponse(message: String) {
         requireContext().showShort(message)
+    }
+
+    fun showLoading() {
+        loadingDialog?.dismiss()
+        loadingDialog = LoadingDialogFragment.newInstance(LoadingDialogFragment.Style.OVERLAY)
+        loadingDialog?.show(childFragmentManager, null)
+    }
+
+    fun hideLoading() {
+        loadingDialog?.dismiss()
     }
 
     companion object {

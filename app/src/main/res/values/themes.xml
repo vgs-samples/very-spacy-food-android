@@ -10,9 +10,10 @@
         <item name="colorSecondary">@color/aliceBlue</item>
         <item name="colorSecondaryVariant">@color/aliceBlue</item>
         <item name="colorOnSecondary">@color/aliceBlue</item>
-        <!-- Customize your theme here. -->
+        <!-- Window attrs -->
         <item name="android:windowBackground">@drawable/space_window_background</item>
         <item name="android:windowTranslucentStatus">true</item>
+        <!-- Other attrs -->
         <item name="android:textColor">@color/aliceBlue</item>
         <item name="android:textColorHint">@color/lightGrey</item>
     </style>
@@ -60,5 +61,20 @@
     <style name="CreditCardInputTextAppearance" parent="@android:style/TextAppearance">
         <item name="android:textColor">@color/aliceBlue</item>
         <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
+    <style name="LoadingDialog" parent="Theme.MaterialComponents.Dialog">
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowCloseOnTouchOutside">false</item>
+    </style>
+
+    <style name="LoadingDialog.Filled">
+        <item name="android:windowBackground">@drawable/space_window_background</item>
+    </style>
+
+    <style name="LoadingDialog.Overlay">
+        <item name="android:windowBackground">@color/black50</item>
     </style>
 </resources>

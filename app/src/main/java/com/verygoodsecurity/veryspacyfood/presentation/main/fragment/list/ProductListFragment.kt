@@ -43,7 +43,7 @@ class ProductListFragment : BaseMainFragment(R.layout.fragment_product_list),
 
     private fun subscribeCartUpdate() {
         viewModel.cartLiveData.observe(viewLifecycleOwner, {
-            tvMainToolbarBasketCounter?.text = if (it.isEmpty()) null else it.count().toString()
+            tvMainToolbarBasketCounter?.text = if (it.isNullOrEmpty()) null else it.count().toString()
         })
         viewModel.paymentCardLiveData.observe(viewLifecycleOwner, {
             mbProductListPayment?.text = getString(

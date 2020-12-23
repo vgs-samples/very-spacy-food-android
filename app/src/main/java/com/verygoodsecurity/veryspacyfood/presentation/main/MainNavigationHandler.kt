@@ -12,5 +12,5 @@ interface MainNavigationHandler {
 
     fun navigateToCheckoutComplete()
 
-    fun navigateBack()
+    fun navigateBack(inclusive: Boolean = false)
 }

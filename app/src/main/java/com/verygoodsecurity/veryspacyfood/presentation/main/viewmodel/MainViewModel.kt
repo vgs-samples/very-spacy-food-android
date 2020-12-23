@@ -8,6 +8,8 @@ import com.verygoodsecurity.veryspacyfood.domain.repository.CheckoutRepository
 import com.verygoodsecurity.veryspacyfood.presentation.main.model.Product
 import com.verygoodsecurity.veryspacyfood.presentation.main.model.SecureCard
 import com.verygoodsecurity.veryspacyfood.util.DataProvider
+import com.verygoodsecurity.veryspacyfood.util.DataProvider.TEST_DATA
+import okhttp3.Call
 
 class MainViewModel : ViewModel() {
 
@@ -19,14 +21,23 @@ class MainViewModel : ViewModel() {
     private val _paymentCardLiveData = MutableLiveData<SecureCard>()
     val paymentCardLiveData: LiveData<SecureCard> get() = _paymentCardLiveData
 
+    private var checkoutCall: Call? = null
+
+    init {
+
+        addToCart(TEST_DATA[0])
+        addPaymentMethod(SecureCard("4111", "1111", "visa"))
+    }
+
     override fun onCleared() {
         super.onCleared()
         repository.cancel()
     }
 
     fun addToCart(product: Product) {
-        _cartLiveData.value?.add(product)
-        _cartLiveData.value = _cartLiveData.value
+        val products = _cartLiveData.value ?: ArrayList()
+        products.add(product)
+        _cartLiveData.value = products
     }
 
     fun addPaymentMethod(card: SecureCard?) {
@@ -39,6 +50,17 @@ class MainViewModel : ViewModel() {
             onResult.invoke(Result.Error())
             return
         }
-        repository.checkout(DataProvider.USER_ID, amount, onResult)
+        checkoutCall?.cancel()
+        checkoutCall = repository.checkout(DataProvider.USER_ID, amount, onResult)
+    }
+
+    fun cancelCheckout() {
+        checkoutCall?.cancel()
+    }
+
+    fun clearData() {
+        cancelCheckout()
+        _cartLiveData.value = null
+        _paymentCardLiveData.value = null
     }
 }

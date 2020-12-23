@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/ic_logo" />
+        tools:src="@drawable/pluto_roll" />
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_marginTop="@dimen/margin_padding_size_medium"

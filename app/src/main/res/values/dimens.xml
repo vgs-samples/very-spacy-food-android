@@ -20,6 +20,7 @@
 
     <dimen name="custom_text_size_medium">18sp</dimen>
     <dimen name="custom_text_size_large">24sp</dimen>
+    <dimen name="custom_text_size_xxxlarge">72sp</dimen>
 
     <dimen name="product_image_height">164dp</dimen>
 
@@ -29,4 +30,7 @@
     <dimen name="credit_card_min_input_width">100dp</dimen>
 
     <dimen name="divider_height">1dp</dimen>
+
+    <dimen name="loading_image_margin_top">62dp</dimen>
+    <dimen name="loading_image_size">80dp</dimen>
 </resources>
