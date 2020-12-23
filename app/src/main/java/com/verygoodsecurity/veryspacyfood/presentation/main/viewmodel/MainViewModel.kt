@@ -8,7 +8,6 @@ import com.verygoodsecurity.veryspacyfood.domain.repository.CheckoutRepository
 import com.verygoodsecurity.veryspacyfood.presentation.main.model.Product
 import com.verygoodsecurity.veryspacyfood.presentation.main.model.SecureCard
 import com.verygoodsecurity.veryspacyfood.util.DataProvider
-import com.verygoodsecurity.veryspacyfood.util.DataProvider.TEST_DATA
 import okhttp3.Call
 
 class MainViewModel : ViewModel() {
@@ -22,12 +21,6 @@ class MainViewModel : ViewModel() {
     val paymentCardLiveData: LiveData<SecureCard> get() = _paymentCardLiveData
 
     private var checkoutCall: Call? = null
-
-    init {
-
-        addToCart(TEST_DATA[0])
-        addPaymentMethod(SecureCard("4111", "1111", "visa"))
-    }
 
     override fun onCleared() {
         super.onCleared()
