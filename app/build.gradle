@@ -19,7 +19,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField "String", "VAULT_ID", "\"tnthths0fb4\""
-        buildConfigField "String", "BASE_URL", "\"https://08b486e77f33.ngrok.io\""
+        buildConfigField "String", "BASE_URL", "\"https://05c7a84b12db.ngrok.io\""
     }
 
     buildTypes {

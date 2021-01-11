@@ -1,16 +1,19 @@
 package com.verygoodsecurity.veryspacyfood.presentation.main.viewmodel
 
+import android.app.Application
+import android.content.Context
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.verygoodsecurity.veryspacyfood.domain.Result
 import com.verygoodsecurity.veryspacyfood.domain.repository.CheckoutRepository
 import com.verygoodsecurity.veryspacyfood.presentation.main.model.Product
 import com.verygoodsecurity.veryspacyfood.presentation.main.model.SecureCard
 import com.verygoodsecurity.veryspacyfood.util.DataProvider
+import com.verygoodsecurity.veryspacyfood.util.extension.isNetworkConnectionAvailable
 import okhttp3.Call
 
-class MainViewModel : ViewModel() {
+class MainViewModel constructor(private val app: Application) : AndroidViewModel(app) {
 
     private val repository = CheckoutRepository()
 
@@ -38,9 +41,13 @@ class MainViewModel : ViewModel() {
     }
 
     fun checkout(onResult: (Result) -> Unit) {
+        if (!app.applicationContext.isNetworkConnectionAvailable()) {
+            onResult.invoke(Result.Error("No internet connection!"))
+            return
+        }
         val amount = cartLiveData.value?.sumByDouble { it.price }
         if (amount == null) {
-            onResult.invoke(Result.Error())
+            onResult.invoke(Result.Error("Amount is null!"))
             return
         }
         checkoutCall?.cancel()

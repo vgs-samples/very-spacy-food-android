@@ -59,7 +59,7 @@ class CheckoutFragment : BaseMainFragment(R.layout.fragment_checkout),
     private fun checkout() {
         showLoading(LoadingDialogFragment.Style.FILLED)
         viewModel.checkout {
-//            hideLoading()
+            hideLoading()
             requireActivity().runOnUiThread {
                 when (it) {
                     is Result.Success -> navigation.navigateToCheckoutComplete()
