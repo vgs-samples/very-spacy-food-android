@@ -29,7 +29,7 @@ class CheckoutRepository {
                     if (response.isSuccessful) {
                         onResult.invoke(Result.Success)
                     } else {
-                        onResult.invoke(Result.Error(response.message))
+                        onResult.invoke(Result.Error("Code = ${response.code}, message = ${response.message}"))
                     }
                 }
             })
