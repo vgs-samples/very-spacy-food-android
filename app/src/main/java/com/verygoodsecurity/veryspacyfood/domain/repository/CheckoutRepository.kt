@@ -26,7 +26,11 @@ class CheckoutRepository {
                 }
 
                 override fun onResponse(call: Call, response: Response) {
-                    onResult.invoke(Result.Success)
+                    if (response.isSuccessful) {
+                        onResult.invoke(Result.Success)
+                    } else {
+                        onResult.invoke(Result.Error(response.message))
+                    }
                 }
             })
         }
