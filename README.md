@@ -3,7 +3,7 @@
 Very Spacy Food is a food ordering demo application build with [VGSCollectSDK](https://www.verygoodsecurity.com/docs/vgs-collect/android-sdk/overview) for secure collecting credit cards data.
 
 <p align="center">
-<img src="screenshots/main_screen.png" width="200">    <img src="screenshots/add_payment_screen.png" width="200">    <img src="screenshots/checkout_screen.png" width="200">     <img src="screenshots/checkout_complete_screen.png" width="200">
+<img src="screenshots/main_screen.png" width="150">    <img src="screenshots/add_payment_screen.png" width="150">    <img src="screenshots/checkout_screen.png" width="150">     <img src="screenshots/checkout_complete_screen.png" width="150">
 </p>
 
 ## How to run it?
