@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:background="#30000000">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivItemProductImage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/pluto_roll" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_marginTop="@dimen/margin_padding_size_medium"
+        android:id="@+id/tvItemProductTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/custom_text_size_large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivItemProductImage"
+        tools:text="Pluto roll" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvItemProductDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_padding_size_small"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvItemProductTitle"
+        tools:text="Fresh salmon with avocado, philadelphia, and cucumber, spruced with a pinch of sesame" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvItemProductPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_padding_size_xlarge"
+        android:textSize="@dimen/custom_text_size_large"
+        app:layout_constraintEnd_toStartOf="@+id/mbItemProductAdd"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvItemProductDescription"
+        tools:text="$9.80" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mbItemProductAdd"
+        style="@style/BaseButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_padding_size_large"
+        android:text="@string/all_add_to_cart"
+        android:textSize="@dimen/text_size_small"
+        app:backgroundTint="@color/goldenPurple"
+        app:layout_constraintBottom_toBottomOf="@+id/tvItemProductPrice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvItemProductPrice"
+        app:layout_constraintTop_toTopOf="@+id/tvItemProductPrice" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/simProductDetailsBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@color/niagara" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clProductDetailsContentContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fitsSystemWindows="true"
+        app:layout_constraintBottom_toBottomOf="@+id/simProductDetailsBackground"
+        app:layout_constraintEnd_toEndOf="@id/simProductDetailsBackground"
+        app:layout_constraintStart_toStartOf="@id/simProductDetailsBackground"
+        app:layout_constraintTop_toTopOf="@id/simProductDetailsBackground">
+
+        <include
+            android:id="@+id/includeProductDetailsToolbar"
+            layout="@layout/main_toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_padding_size_xlarge"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/includeProductDetailsToolbar">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivProductDetailsImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                app:layout_constraintBottom_toTopOf="@+id/mtvProductDetailsTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/alien_noodles" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/mtvProductDetailsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/margin_padding_size_small"
+                android:gravity="center"
+                app:autoSizeMaxTextSize="@dimen/text_size_xlarge"
+                app:autoSizeMinTextSize="@dimen/text_size_medium"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toTopOf="@+id/mtvProductDetailsDescription"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivProductDetailsImage"
+                tools:text="Alien noodles\n(330g)" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/mtvProductDetailsDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_size_small"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:textSize="@dimen/text_size_small"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mtvProductDetailsTitle"
+                tools:text="Buttery, garlicky noodles served with juicy jumbo shrimp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_padding_size_large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/simProductDetailsBackground"
+        tools:background="#30000000">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvProductDetailsPrice"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            app:autoSizeMaxTextSize="@dimen/text_size_xlarge"
+            app:autoSizeMinTextSize="@dimen/text_size_medium"
+            app:autoSizeTextType="uniform"
+            tools:text="$7.90" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_padding_size_small"
+            android:gravity="center"
+            android:text="@string/product_details_delivery_description"
+            android:textSize="@dimen/text_size_small" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mbProductDetailsAddToCart"
+            style="@style/BaseButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/all_add_to_cart" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/simCreditCardBottomSheetBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/CreditCardBottomSheetDialogBgImageStyle"
+        app:srcCompat="@drawable/space_window_background" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/margin_padding_size_large"
+        android:paddingTop="@dimen/margin_padding_size_medium"
+        android:paddingEnd="@dimen/margin_padding_size_large"
+        android:paddingBottom="@dimen/margin_padding_size_xxxlarge"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/appCompatImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_down_white_35dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/materialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_padding_size_xlarge"
+            android:text="@string/credit_card_add_card_title"
+            android:textSize="@dimen/text_size_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatImageView" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvCreditCardSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/all_save"
+            android:textSize="@dimen/text_size_medium"
+            app:layout_constraintBaseline_toBaselineOf="@+id/materialTextView"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.verygoodsecurity.vgscollect.widget.VGSTextInputLayout
+            android:id="@+id/tilCreditCardHolderName"
+            style="@style/CreditCardInputStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_padding_size_medium"
+            app:hint="@string/credit_card_holder_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/materialTextView">
+
+            <com.verygoodsecurity.vgscollect.widget.PersonNameEditText
+                android:id="@+id/etCreditCardHolderName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:nextFocusDown="@+id/cardExpDateField"
+                android:padding="@dimen/margin_padding_size_small"
+                app:fieldName="@string/credit_card_card_name_field_name"
+                app:textColor="@color/aliceBlue" />
+        </com.verygoodsecurity.vgscollect.widget.VGSTextInputLayout>
+
+        <com.verygoodsecurity.vgscollect.widget.VGSTextInputLayout
+            android:id="@+id/tilCreditCardNumber"
+            style="@style/CreditCardInputStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_padding_size_medium"
+            app:hint="@string/credit_card_number_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tilCreditCardHolderName">
+
+            <com.verygoodsecurity.vgscollect.widget.VGSCardNumberEditText
+                android:id="@+id/etCreditCardNumber"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:nextFocusDown="@+id/cardExpDateField"
+                android:padding="@dimen/margin_padding_size_small"
+                app:cardBrandIconGravity="end"
+                app:fieldName="@string/credit_card_card_number_field_name"
+                app:inputType="number"
+                app:numberDivider=" "
+                app:textColor="@color/aliceBlue"
+                app:validationRule="acceptUnknown" />
+        </com.verygoodsecurity.vgscollect.widget.VGSTextInputLayout>
+
+        <com.verygoodsecurity.vgscollect.widget.VGSTextInputLayout
+            android:id="@+id/tilCreditCardDate"
+            style="@style/CreditCardInputStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_padding_size_medium"
+            app:hint="@string/credit_card_date_hint"
+            app:layout_constraintEnd_toStartOf="@+id/tilCreditCardCVC"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tilCreditCardNumber"
+            app:layout_constraintWidth_min="@dimen/credit_card_min_input_width">
+
+            <com.verygoodsecurity.vgscollect.widget.ExpirationDateEditText
+                android:id="@+id/etCreditCardDate"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:nextFocusDown="@+id/tilCreditCardCVC"
+                android:padding="@dimen/margin_padding_size_small"
+                app:datePattern="MM/yy"
+                app:datePickerModes="input"
+                app:fieldName="@string/credit_card_card_date_field_name"
+                app:gravity="center"
+                app:imeOptions="actionNext"
+                app:inputType="date"
+                app:outputPattern="MM/yy"
+                app:textColor="@color/aliceBlue" />
+        </com.verygoodsecurity.vgscollect.widget.VGSTextInputLayout>
+
+        <com.verygoodsecurity.vgscollect.widget.VGSTextInputLayout
+            android:id="@+id/tilCreditCardCVC"
+            style="@style/CreditCardInputStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_padding_size_medium"
+            android:layout_marginTop="@dimen/margin_padding_size_medium"
+            app:hint="@string/credit_card_cvc_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tilCreditCardDate"
+            app:layout_constraintTop_toBottomOf="@+id/tilCreditCardNumber"
+            app:layout_constraintWidth_min="@dimen/credit_card_min_input_width">
+
+            <com.verygoodsecurity.vgscollect.widget.CardVerificationCodeEditText
+                android:id="@+id/etCreditCardCVC"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:nextFocusDown="@+id/cardExpDateField"
+                android:padding="@dimen/margin_padding_size_small"
+                app:fieldName="@string/credit_card_card_cvc_field_name"
+                app:gravity="center"
+                app:imeOptions="actionDone"
+                app:textColor="@color/aliceBlue" />
+        </com.verygoodsecurity.vgscollect.widget.VGSTextInputLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

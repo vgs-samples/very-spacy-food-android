@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingStart="@dimen/margin_padding_size_large"
+        android:paddingTop="@dimen/margin_padding_size_large"
+        android:paddingEnd="@dimen/margin_padding_size_large"
+        app:layout_constraintBottom_toTopOf="@id/guideline4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivCheckoutCompleteClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_close_white_27dp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvCheckoutCompleteTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ellipsize="end"
+            android:lines="@integer/singleLine"
+            android:text="@string/all_success"
+            android:textSize="@dimen/custom_text_size_xxxlarge"
+            app:layout_constraintBottom_toTopOf="@+id/ivLoadingFilledImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivCheckoutCompleteClose"
+            app:layout_constraintVertical_chainStyle="spread" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivLoadingFilledImage"
+            android:layout_width="@dimen/loading_image_size"
+            android:layout_height="@dimen/loading_image_size"
+            android:src="@drawable/ic_rocket"
+            app:layout_constraintBottom_toTopOf="@+id/guideline2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mtvCheckoutCompleteTitle" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/materialTextView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/checkout_complete_subtitle"
+            android:textColor="@color/grey3"
+            android:textSize="@dimen/custom_text_size_large"
+            app:layout_constraintBottom_toTopOf="@+id/materialTextView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline2"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/materialTextView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_padding_size_small"
+            android:text="@string/checkout_complete_order_id_mock"
+            android:textColor="@color/grey5"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintBottom_toTopOf="@+id/guideline3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/materialTextView4" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.7" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvCheckoutCompleteCardNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/margin_padding_size_small"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:lines="@integer/singleLine"
+            android:textColor="@color/grey3"
+            android:textSize="@dimen/custom_text_size_large"
+            app:drawableBottomCompat="@drawable/ic_visa_white_24dp"
+            app:layout_constraintBottom_toTopOf="@+id/mtvCheckoutCompletePrice"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline3"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="4111 **** **** 1111" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvCheckoutCompletePrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_padding_size_large"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:lines="@integer/singleLine"
+            android:textColor="@color/grey5"
+            android:textSize="@dimen/text_size_xlarge"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mtvCheckoutCompleteCardNumber"
+            tools:text="$20.20" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <View
+        android:id="@+id/viewCheckoutOrderInfoDivider"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/aliceBlue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline4" />
+</androidx.constraintlayout.widget.ConstraintLayout>

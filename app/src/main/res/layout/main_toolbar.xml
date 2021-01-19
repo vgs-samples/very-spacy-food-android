@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="?android:attr/actionBarSize"
+    android:orientation="horizontal"
+    tools:background="#30000000"
+    tools:layout_height="56dp">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/mtvMainToolbarBack"
+        style="@android:style/TextAppearance.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:drawableStart="@drawable/ic_back_white_22dp"
+        android:drawablePadding="@dimen/margin_padding_size_small"
+        android:gravity="center"
+        android:paddingStart="@dimen/margin_padding_size_medium"
+        android:paddingEnd="0dp"
+        android:text="@string/toolbar_back_btn_title"
+        android:textColor="@color/aliceBlue"
+        android:visibility="gone"
+        app:drawableTint="@color/aliceBlue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivMainToolbarBasket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_padding_size_medium"
+        android:src="@drawable/ic_basket_white_30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvMainToolbarBasketCounter"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="bottom|center_horizontal"
+        android:paddingStart="@dimen/margin_padding_size_micro"
+        android:paddingTop="@dimen/margin_padding_size_small"
+        android:paddingEnd="@dimen/margin_padding_size_micro"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="@+id/ivMainToolbarBasket"
+        app:layout_constraintEnd_toEndOf="@+id/ivMainToolbarBasket"
+        app:layout_constraintStart_toStartOf="@+id/ivMainToolbarBasket"
+        app:layout_constraintTop_toTopOf="@+id/ivMainToolbarBasket"
+        tools:text="9" />
+</androidx.constraintlayout.widget.ConstraintLayout>
