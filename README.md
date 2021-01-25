@@ -1,66 +1,78 @@
 # Very Spacy Food <br/> VGS Collect Android SDK Showcase Application 
 
-Very Spacy Food is a food ordering demo application build with [VGSCollectSDK](https://www.verygoodsecurity.com/docs/vgs-collect/android-sdk/overview) for secure collecting credit cards data.
+Very Spacy Food is a food ordering demo application build with [VGS Collect SDK](https://www.verygoodsecurity.com/docs/vgs-collect/android-sdk/overview) for secure collecting credit cards data.
 
 <p align="center">
-<img src="screenshots/main_screen.png" width="150">    <img src="screenshots/add_payment_screen.png" width="150">    <img src="screenshots/checkout_screen.png" width="150">     <img src="screenshots/checkout_complete_screen.png" width="150">
+    <img src="screenshots/main_screen.png" width="150">    
+    <img src="screenshots/add_payment_screen.png" width="150">    
+    <img src="screenshots/checkout_screen.png" width="150">     
+    <img src="screenshots/checkout_complete_screen.png" width="150">
 </p>
 
+
+## Requirements
+
+- The organization should be registered in <a href="https://dashboard.verygoodsecurity.com/dashboard/">VGS Dashboard</a>;
+- <a href="https://developer.android.com/studio">Android Studio</a>;
+- Android **4.4** (API level 19) and above.
+
+
 ## How to run it?
-### Requirements
 
-- Organization with <a href="https://www.verygoodsecurity.com/">VGS</a>
+### Step 1
 
-#### Step 1
+Go to your <a href="https://dashboard.verygoodsecurity.com/" target="_blank">VGS organization</a> and establish <a href="https://www.verygoodsecurity.com/docs/getting-started/quick-integration#securing-inbound-connection" target="_blank">Inbound connection</a>. For this demo you can import pre-built Routs configuration:
 
-Install [VGS Collect and pay](https://github.com/verygoodsecurity/collect-and-pay-demo-backend/tree/api) and complete the "How to use" guide.
+<p align="center">
+<img src="dashboard_routs.png" width="600">
+</p>
 
-#### Step 2
+-  Find the **configuration.yaml** file inside the app repository and download it.
+-  Go to the **Routs** section on the <a href="https://dashboard.verygoodsecurity.com/" target="_blank">Dashboard</a> page selet **Inbound** Tab. 
+-  Press **Manage** button at the right corner and select **Import YAML file**.
+-  Choose **configuration.yaml** that you just download and tap on **Save** button to save the Rout.
+
+Now the data you sent to the VGS Collect SDK will be secured.
+
+
+### Step 2
 
 Clone Very Spacy Food application repository.
 
 ``git@github.com:vgs-samples/very-spacy-food-android.git``
 
-#### Step 3
+### Step 3
 
-Go to build.gradle find those lines: 
+Go to build.gradle and find the code: 
     
     buildConfigField "String", "VAULT_ID", "<VAULT_ID>"
     buildConfigField "String", "BASE_URL", "<VGS_COLLECT_AND_PAY_SERVER_URL>"
     
-and replace `"VAULT_ID"` with your organization <a href="https://www.verygoodsecurity.com/docs/terminology/nomenclature#vault" target="_blank">vault id</a>,
-`"BASE_URL"` with your [VGS Collect and pay](https://github.com/verygoodsecurity/collect-and-pay-demo-backend/tree/api) instance url.
- 
+Replace `"<VAULT_ID>"` with your organization <a href="https://www.verygoodsecurity.com/docs/terminology/nomenclature#vault" target="_blank">vault id</a>,
+`"<VGS_COLLECT_AND_PAY_SERVER_URL>"` with URL to your API for storing redacted payment data collection and revealing this data to a third-party payment services.
+
+Rebuild Project.
+
 ### Step 4 
 
 Run the application and try to order some Very Spacy Food.</br>
 
-#### When on Add Credit Card Data screen
+#### "Add Credit Card Data" screen
 
-You can use test credit card data to make the order, e.x.:
+You can use test credit card data to make the order:
 
-``` swift
+- `Joe Business` as a **Cardholder Name**;
+- `4111111111111111` as a **Card Number**;
+- `11/22` as an **Expiration Date**;
+- `123` as a **Card Verification Code (CVC)**;
 
-/// Cardholder Name 
-Joe Business
-
-/// Card Number   
-4111111111111111
-
-/// Exp. Date  
-11/22
-
-/// CVC code
-123
-
-```
-Press **Save** button. Then data will be submitted to VGS.  
+Press **Save** button. Now data should be submitted to VGS.  
 Go to the Logs tab on <a href="http://dashboard.verygoodsecurity.com" target="_blank">Dashboard</a>, find request and secure a payload.  
 Instruction for this step you can find <a href="https://www.verygoodsecurity.com/docs/getting-started/quick-integration#securing-inbound-connection" target="_blank">here</a>.
 
-#### When on Checkout screen
+#### "Checkout" screen
 
-Press **Checkout** button. After successful response go to your Stripe dashboard and find your order.
+Press **Checkout** button. After successful response you may go to your Stripe dashboard and find your order.
 
 ### Useful links
 
