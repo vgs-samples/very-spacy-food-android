@@ -1,0 +1,37 @@
+version: 2.1
+
+aliases:
+  - &environment
+    working_directory: ~/code
+    docker:
+      - image: circleci/android:api-29
+    environment:
+      JVM_OPTS: -Xmx3200m
+
+jobs:
+  "Run_Lint_And_Build":
+    <<: *environment
+    steps:
+      - checkout
+      - restore_cache:
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+      - run:
+          name: Download Dependencies
+          command: |
+            sudo chmod +x gradlew
+            ./gradlew androidDependencies
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+      - run:
+          name: Run Lint
+          command: ./gradlew lintDebug
+      - run:
+          name: Build
+          command: ./gradlew assembleDebug
+
+workflows:
+  main:
+    jobs:
+      - "Run_Lint_And_Build"
