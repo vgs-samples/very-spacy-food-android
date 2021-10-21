@@ -1,0 +1,49 @@
+data:
+  - attributes:
+      created_at: '2021-10-20T08:44:10'
+      destination_override_endpoint: 'https://echo.apps.verygood.systems'
+      entries:
+        - classifiers: {}
+          config:
+            condition: AND
+            rules:
+              - expression:
+                  field: PathInfo
+                  operator: equals
+                  type: string
+                  values:
+                    - /post
+              - expression:
+                  field: ContentType
+                  operator: equals
+                  type: string
+                  values:
+                    - application/json
+          id: 11d7e3a4-ba50-451c-b9f0-379cefadb772
+          id_selector: null
+          operation: REDACT
+          operations: null
+          phase: REQUEST
+          public_token_generator: UUID
+          targets:
+            - body
+          token_manager: PERSISTENT
+          transformer: JSON_PATH
+          transformer_config:
+            - $.card_number
+            - $.card_name
+            - $.card_cvc
+            - $.card_expiration_date
+          transformer_config_map: null
+      host_endpoint: (.*)\.verygoodproxy\.com
+      id: 90e8498a-f27c-46f3-82f6-266c65cdb1cb
+      ordinal: null
+      port: 80
+      protocol: http
+      source_endpoint: '*'
+      tags:
+        name: very-spacy-food
+      updated_at: '2021-10-21T15:21:19'
+    id: 90e8498a-f27c-46f3-82f6-266c65cdb1cb
+    type: rule_chain
+version: 1
