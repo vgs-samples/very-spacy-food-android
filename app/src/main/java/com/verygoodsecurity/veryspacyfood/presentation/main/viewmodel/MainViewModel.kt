@@ -9,7 +9,6 @@ import com.verygoodsecurity.veryspacyfood.presentation.main.model.Product
 import com.verygoodsecurity.veryspacyfood.presentation.main.model.SecureCard
 import com.verygoodsecurity.veryspacyfood.util.ConnectivityHelper
 import com.verygoodsecurity.veryspacyfood.util.DataProvider
-import okhttp3.Call
 
 class MainViewModel constructor(private val connectivityHelper: ConnectivityHelper) : ViewModel() {
 
@@ -20,8 +19,6 @@ class MainViewModel constructor(private val connectivityHelper: ConnectivityHelp
 
     private val _paymentCardLiveData = MutableLiveData<SecureCard?>()
     val paymentCardLiveData: LiveData<SecureCard?> get() = _paymentCardLiveData
-
-    private var checkoutCall: Call? = null
 
     override fun onCleared() {
         super.onCleared()
@@ -48,12 +45,11 @@ class MainViewModel constructor(private val connectivityHelper: ConnectivityHelp
             onResult.invoke(Result.Error("Amount is null!"))
             return
         }
-        checkoutCall?.cancel()
-        checkoutCall = repository.checkout(DataProvider.USER_ID, amount, onResult)
+        repository.checkout(DataProvider.USER_ID, (amount * 100).toInt(), onResult)
     }
 
     fun cancelCheckout() {
-        checkoutCall?.cancel()
+        repository.cancel()
     }
 
     fun clearData() {
