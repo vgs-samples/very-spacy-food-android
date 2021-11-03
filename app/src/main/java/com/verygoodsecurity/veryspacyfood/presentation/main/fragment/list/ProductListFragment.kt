@@ -8,6 +8,7 @@ import com.verygoodsecurity.veryspacyfood.presentation.main.fragment.core.BaseMa
 import com.verygoodsecurity.veryspacyfood.presentation.main.fragment.list.adapter.ProductsAdapter
 import com.verygoodsecurity.veryspacyfood.presentation.main.model.Product
 import com.verygoodsecurity.veryspacyfood.presentation.main.viewmodel.MainViewModel
+import com.verygoodsecurity.veryspacyfood.presentation.main.viewmodel.MainViewModelFactory
 import com.verygoodsecurity.veryspacyfood.util.DataProvider.TEST_DATA
 import com.verygoodsecurity.veryspacyfood.util.extension.showShort
 import kotlinx.android.synthetic.main.fragment_product_list.*
@@ -18,7 +19,9 @@ class ProductListFragment : BaseMainFragment(R.layout.fragment_product_list),
     ProductsAdapter.OnProductClickListener {
 
     @Suppress("unused")
-    private val viewModel: MainViewModel by activityViewModels()
+    private val viewModel: MainViewModel by activityViewModels(factoryProducer = {
+        MainViewModelFactory(requireActivity().applicationContext)
+    })
 
     private val adapter = ProductsAdapter(this)
 
@@ -43,7 +46,8 @@ class ProductListFragment : BaseMainFragment(R.layout.fragment_product_list),
 
     private fun subscribeCartUpdate() {
         viewModel.cartLiveData.observe(viewLifecycleOwner, {
-            tvMainToolbarBasketCounter?.text = if (it.isNullOrEmpty()) null else it.count().toString()
+            tvMainToolbarBasketCounter?.text =
+                if (it.isNullOrEmpty()) null else it.count().toString()
         })
         viewModel.paymentCardLiveData.observe(viewLifecycleOwner, {
             mbProductListPayment?.text = getString(
